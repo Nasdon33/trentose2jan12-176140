@@ -112,7 +112,7 @@ definitions:
     allOf:
       - $ref: '#/definitions/NewAstronaut'
       - required:
-        - assignmentID
+        - astronautID
         properties:
           assignmentID:
             type: string
