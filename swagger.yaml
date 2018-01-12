@@ -20,7 +20,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /astronauts/{id}/:
+  /astronauts/{id}:
     get:
       description: Return the info about an astronaut specified by the id
       operationId: getAstronaut
@@ -29,9 +29,8 @@ paths:
           in: path
           description: ID of astronaut to fetch
           required: true
-          type: integer
-          format: int32
-          x-example: 23
+          type: string
+          x-example: 'udhfdfngdgoijafkjdh'
       responses:
         200:
           description: Infos of the astronaut
@@ -49,9 +48,8 @@ paths:
           in: path
           description: ID of astronaut to modify
           required: true
-          type: integer
-          format: int32
-          x-example: 23
+          type: string
+          x-example: 'udhfdfngdgoijafkjdh'
         - name: astronaut
           in: body
           description: astronaut
