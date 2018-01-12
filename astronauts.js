@@ -64,6 +64,27 @@ astronauts.route('/')
 astronauts.route('/:astronautID')
     .get(function(req, res) {
         // Visualizzare un astronauta con ID in input
+        const id = req.params.astronautID;
+        var i = 0;
+        while(true)
+        {
+            var data;
+            try
+            {
+                data = db.getData("/database/data[" + i + "]");
+            }
+            catch(error)
+            {
+                res.sendStatus(404);
+                break;
+            }
+            if (data.astronautID === id)
+            {
+                res.status(200).json(data);
+                break;
+            }
+            i++;
+        }
     })
     .post(function(req, res) {
         // Modificare un astronauta con ID in input
