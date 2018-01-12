@@ -20,7 +20,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /astronauts/{id}/:
+  /astronauts/{id}:
     get:
       description: Return the info about an astronaut specified by the id
       operationId: getAstronaut
