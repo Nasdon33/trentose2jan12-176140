@@ -4,7 +4,7 @@
   "description": "esame 176140",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "jest": {
     "verbose": true
