@@ -35,6 +35,7 @@ astronauts.route('/')
                 break;
             }
             Astronauts.push(data);
+            i++;
         }
         res.json(Astronauts);
     });
