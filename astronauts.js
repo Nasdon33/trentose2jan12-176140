@@ -23,19 +23,39 @@ astronauts.route('/')
         // Visualizzare tutti o alcuni astronauti
         var Astronauts = [];
         var i = 0;
-        while(true)
+        if(req.query.lastName)
         {
-            var data;
-            try
+            while(true)
             {
-                data = db.getData("/database/data[" + i + "]");
+                var data;
+                try
+                {
+                    data = db.getData("/database/data[" + i + "]");
+                }
+                catch(error)
+                {
+                    break;
+                }
+                if(data.lastName === req.query.lastName)
+                    Astronauts.push(data);
+                i++;
             }
-            catch(error)
+        }
+        else{
+            while(true)
             {
-                break;
+                var data;
+                try
+                {
+                    data = db.getData("/database/data[" + i + "]");
+                }
+                catch(error)
+                {
+                    break;
+                }
+                Astronauts.push(data);
+                i++;
             }
-            Astronauts.push(data);
-            i++;
         }
         res.json(Astronauts);
     });
